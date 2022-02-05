@@ -27,3 +27,5 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new graphql.GraphQLSchema({
     query: RootQuery,
 })
+
+//deneme
