@@ -1,8 +1,8 @@
 version: '3'
 services:
-  duckbuddyy-graphql:
+  graphql-server:
     build:
-      context: .
+      context: ./server
       args: 
         NODE_ENV: production
     env_file:
@@ -10,6 +10,6 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./:/app/
-      - /app/node_modules
+      - ./:/graphql-example
+      - /graphql-example/server/node_modules
     command: npm run prod

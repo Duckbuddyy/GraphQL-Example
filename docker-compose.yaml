@@ -1,4 +1,4 @@
 version: '3'
 services:
-  duckbuddyy-graphql:
-    build: . 
+  graphql-server:
+    build: ./server/
