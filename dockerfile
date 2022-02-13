@@ -1,5 +1,5 @@
 FROM  node
-WORKDIR /graphql-example/server
+WORKDIR /graphql-example
 COPY package.json .
 ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; \

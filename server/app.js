@@ -7,8 +7,6 @@ const mongoose = require("mongoose");
 
 const mongoUrl = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@graphql-cluster.0suav.mongodb.net/${MONGO_DATABASE_NAME}?retryWrites=true&w=majority`;
 
-console.log(mongoUrl)
-
 const app = express();
 
 mongoose.connect(mongoUrl);
