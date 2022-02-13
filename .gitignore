@@ -24,3 +24,9 @@ node_modules/
 
 # Optional npm cache directory
 .npm
+
+# Secret environment parameters for Development
+.env
+
+# MacOS finder
+.DS_Store
