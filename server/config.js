@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 module.exports = {
     MONGO_DATABASE_NAME: process.env.MONGO_DATABASE_NAME,
     MONGO_USERNAME: process.env.MONGO_USERNAME,

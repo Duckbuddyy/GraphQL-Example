@@ -1,4 +1,4 @@
-const { NODE_PORT, MONGO_USERNAME, MONGO_PASSWORD, MONGO_DATABASE_NAME } = require("../config/config");
+const { NODE_PORT, MONGO_USERNAME, MONGO_PASSWORD, MONGO_DATABASE_NAME } = require("./config");
 
 const express = require("express");
 const graphqlHTTP = require("express-graphql").graphqlHTTP;

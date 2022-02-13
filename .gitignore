@@ -30,3 +30,7 @@ node_modules/
 
 # MacOS finder
 .DS_Store
+
+# Secrets ignored for Security
+.envdev
+.envprod

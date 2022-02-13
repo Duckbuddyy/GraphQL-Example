@@ -2,7 +2,7 @@ version: '3'
 services:
   graphql-server:
     build:
-      context: ./
+      context: ./server
       args: 
         NODE_ENV: production
     env_file:
@@ -11,5 +11,5 @@ services:
       - "4000:4000"
     volumes:
       - ./:/graphql-example
-      - /graphql-example/node_modules
+      - /graphql-example/server/node_modules
     command: npm run prod
