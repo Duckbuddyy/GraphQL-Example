@@ -2,10 +2,10 @@
   "name": "my-graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server/app.js",
   "scripts": {
-    "prod": "node app.js",
-    "dev": "nodemon -L app.js"
+    "prod": "node server/app.js",
+    "dev": "nodemon -L server/app.js"
   },
   "keywords": [],
   "author": "",
