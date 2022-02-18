@@ -13,3 +13,16 @@ services:
       - ./:/graphql-example
       - /graphql-example/server/node_modules
     command: npm run dev
+graphql-client:
+    build:
+      context: ./client
+      args: 
+        NODE_ENV: development
+    env_file:
+      - ./.envdev
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./:/graphql-example
+      - /graphql-example/client/node_modules
+    command: npm run dev

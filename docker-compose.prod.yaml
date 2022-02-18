@@ -13,3 +13,16 @@ services:
       - ./:/graphql-example
       - /graphql-example/server/node_modules
     command: npm run prod
+  graphql-client:
+    build:
+      context: ./client
+      args: 
+        NODE_ENV: production
+    env_file:
+      - ./.envprod
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/graphql-example
+      - /graphql-example/client/node_modules
+    command: npm run prod

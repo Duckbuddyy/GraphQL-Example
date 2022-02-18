@@ -2,3 +2,5 @@ version: '3'
 services:
   graphql-server:
     build: ./server/
+  graphql-client:
+    build: ./client/
