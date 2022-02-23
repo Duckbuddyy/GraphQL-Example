@@ -10,19 +10,19 @@ services:
     ports:
       - "4001:4001"
     volumes:
-      - ./:/graphql-example
+      - ./server:/graphql-example/server
       - /graphql-example/server/node_modules
     command: npm run dev
-graphql-client:
+  graphql-client:
     build:
       context: ./client
       args: 
-        NODE_ENV: development
+        PORT: "3001"
     env_file:
       - ./.envdev
     ports:
       - "3001:3001"
     volumes:
-      - ./:/graphql-example
+      - ./client:/graphql-example/client
       - /graphql-example/client/node_modules
-    command: npm run dev
+    command: npm start
