@@ -16,6 +16,6 @@ My example GraphQL project for learning from <a href="https://www.youtube.com/wa
 
 for development or
 
-    docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
+    docker-compose -f docker-compose.yaml -f docker-compose.prod.yaml up
 
 for production.
