@@ -7,6 +7,4 @@ RUN if [ "$NODE_ENV" = "development" ]; \
     else npm install --only=production; \
     fi
 COPY . ./
-EXPOSE $REACT_PORT
-CMD ["node", "app.js"]
-RUN chmod 777 /graphql-example/client/node_modules/
+RUN chmod 777 ./node_modules/
