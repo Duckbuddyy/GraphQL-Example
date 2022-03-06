@@ -1,4 +1,5 @@
 # Secrets ignored for Security
+.env
 .envdev
 .envprod
 
