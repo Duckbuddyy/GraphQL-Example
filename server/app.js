@@ -6,9 +6,11 @@ const schema = require("./schema/schema");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const mongoUrl = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@graphql-cluster.0suav.mongodb.net/${MONGO_DATABASE_NAME}?retryWrites=true&w=majority`;
+const mongoUrl = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@graphql-database:27017/?retryWrites=true&w=majority`;
 
 const app = express();
+
+app.use(cors({}));
 
 mongoose.connect(mongoUrl);
 mongoose.connection.once("open", () => {
@@ -18,11 +20,6 @@ mongoose.connection.once("open", () => {
 app.use("/graphql", graphqlHTTP({
     schema: schema,
     graphiql: true,
-    extensions({
-        result,
-      }) {
-        console.log(result.data);
-      },
 }));
 
 app.listen(NODE_PORT, () => {
