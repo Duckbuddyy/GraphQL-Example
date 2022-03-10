@@ -1,8 +1,8 @@
 FROM  node:17-alpine
 WORKDIR /graphql-example/server
 COPY package.json .
-ARG NODE_ENV
-RUN if [ "$NODE_ENV" = "development" ]; \
+ARG SERVER_ENV
+RUN if [ "$SERVER_ENV" = "development" ]; \
         then npm install; \
     else npm install --only=production; \
     fi

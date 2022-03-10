@@ -1,4 +1,4 @@
-const { NODE_PORT, MONGO_USERNAME, MONGO_PASSWORD, MONGO_DATABASE_NAME } = require("./config");
+const { SERVER_PORT, MONGO_USERNAME, MONGO_PASSWORD } = require("./config");
 
 const express = require("express");
 const graphqlHTTP = require("express-graphql").graphqlHTTP;
@@ -8,8 +8,6 @@ const mongoose = require("mongoose");
 const mongoUrl = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@graphql-database:27017/?retryWrites=true&w=majority`;
 
 const app = express();
-
-app.use(cors({}));
 
 mongoose.connect(mongoUrl);
 mongoose.connection.once("open", () => {
@@ -21,6 +19,6 @@ app.use("/graphql", graphqlHTTP({
     graphiql: true,
 }));
 
-app.listen(NODE_PORT, () => {
-    console.log("Listening request from localhost: " + NODE_PORT)
+app.listen(SERVER_PORT, () => {
+    console.log("Listening request from localhost: " + SERVER_PORT)
 });
