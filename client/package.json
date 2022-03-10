@@ -14,10 +14,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=$REACT_PORT react-scripts start",
-    "build": "PORT=$REACT_PORT react-scripts build",
-    "test": "PORT=$REACT_PORT react-scripts test",
-    "eject": "PORT=REACT_PORT react-scripts eject"
+    "start": "PORT=$CLIENT_PORT REACT_APP_SERVER_URL=$SERVER_URL REACT_APP_SERVER_PORT=$SERVER_PORT react-scripts start",
+    "build": "PORT=$CLIENT_PORT REACT_APP_SERVER_URL=$SERVER_URL REACT_APP_SERVER_PORT=$SERVER_PORT react-scripts build",
+    "test": "PORT=$CLIENT_PORT REACT_APP_SERVER_URL=$SERVER_URL REACT_APP_SERVER_PORT=$SERVER_PORT react-scripts test",
+    "eject": "PORT=$CLIENT_PORT REACT_APP_SERVER_URL=$SERVER_URL REACT_APP_SERVER_PORT=$SERVER_PORT react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
