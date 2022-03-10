@@ -1,6 +1,39 @@
 version: '3'
 services:
-  graphql-server:
-    build: ./server/
   graphql-client:
+    container_name: Client
     build: ./client/
+    restart: always
+    networks:
+      - frontend
+    volumes:
+      - ./client:/graphql-example/client
+      - /graphql-example/client/node_modules
+
+  graphql-server:
+    container_name: Server
+    build: ./server/
+    restart: always
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - ./server:/graphql-example/server
+      - /graphql-example/server/node_modules
+
+  graphql-database:
+    container_name: Database
+    image: mongo
+    restart: always
+    volumes:
+      - mongo-db:/data/db
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+
+volumes:
+  mongo-db:

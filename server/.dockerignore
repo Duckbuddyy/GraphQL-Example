@@ -1,7 +1,5 @@
 node_modules
 Dockerfile
-rsync-exclude.txt
-.dockerignore
 .git
 .gitignore
 docker-compose.*
