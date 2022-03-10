@@ -9,6 +9,8 @@ const mongoUrl = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@graphql-database
 
 const app = express();
 
+app.use(cors({}));
+
 mongoose.connect(mongoUrl);
 mongoose.connection.once("open", () => {
     console.log("Connected to database");
