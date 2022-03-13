@@ -18,7 +18,7 @@ const BookList = () => {
   else
     return (
       <div>
-        <ul id="books-list">
+        <ul id="book-list">
           {data.books.map(book => <li key={book.id} onClick={(e) => setSelectedState({ selected: book.id })}>{book.name}</li>)}
         </ul>
         <BookDetails bookId={selectedState.selected} />

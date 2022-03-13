@@ -21,6 +21,7 @@ const AddBook = () => {
     return (
         <form id="add-book" onSubmit={(e) => {
             e.preventDefault();
+            addBook();
         }}>
             <div className="field">
                 <label>Book name:</label>

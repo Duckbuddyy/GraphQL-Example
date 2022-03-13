@@ -10,13 +10,13 @@ const BookDetails = (props) => {
     });
 
     if (loading)
-        return <div>Book details loading.</div>;
+        return <div id='book-details'>Book details loading.</div>;
     else if (error)
-        return <div>Error happened while loading book detail.(</div>;
+        return <div id='book-details'>Error happened while loading book detail.</div>;
     else
         if (data.book)
             return (
-                <div>
+                <div id='book-details'>
                     <h2>{data.book.name}</h2>
                     <p>{data.book.genre}</p>
                     <p>{data.book.author.name}</p>
@@ -28,7 +28,7 @@ const BookDetails = (props) => {
             );
         else {
             return (
-                <div>
+                <div id='book-details'>
                     <p>No book selected.</p>
                 </div>
             );
