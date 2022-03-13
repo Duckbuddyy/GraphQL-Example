@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { getAuthorsQuery, addBookMutation } from '../queries/queries.js';
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries.js';
 
 const AddBook = () => {
     const [formState, setFormState] = useState({
@@ -14,13 +14,13 @@ const AddBook = () => {
             name: formState.name,
             genre: formState.genre,
             authorId: formState.authorId
-        }
+        },
+        refetchQueries: [{ query: getBooksQuery }]
     });
 
     return (
         <form id="add-book" onSubmit={(e) => {
             e.preventDefault();
-            console.log(addBook());
         }}>
             <div className="field">
                 <label>Book name:</label>
@@ -65,11 +65,6 @@ const authorField = (props) => {
         return data.authors.map(author =>
             <option key={author.id} value={author.id}>{author.name}</option>
         );
-}
-
-function submitForm(e, state) {
-    e.preventDefault();
-    console.log(state);
 }
 
 export default AddBook;
