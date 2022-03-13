@@ -1,28 +1,49 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { getAuthorsQuery } from '../queries/queries.js';
+import React, { useState } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
+import { getAuthorsQuery, addBookMutation } from '../queries/queries.js';
 
-const AddBook = (props) => {
-    let state = {
-        name: "1",
-        genre: "1",
-        authorId: "1"
-    };
+const AddBook = () => {
+    const [formState, setFormState] = useState({
+        name: '',
+        genre: '',
+        authorId: ''
+    });
+
+    const [addBook] = useMutation(addBookMutation, {
+        variables: {
+            name: formState.name,
+            genre: formState.genre,
+            authorId: formState.authorId
+        }
+    });
+
     return (
-        <form id="add-book" onSubmit={(e) => submitForm(e, state)}>
+        <form id="add-book" onSubmit={(e) => {
+            e.preventDefault();
+            console.log(addBook());
+        }}>
             <div className="field">
                 <label>Book name:</label>
-                <input type="text" onChange={(e) => state.name = e.target.value} />
+                <input type="text" onChange={(e) => setFormState({
+                    ...formState,
+                    name: e.target.value
+                })} />
             </div>
 
             <div className="field">
                 <label>Genre:</label>
-                <input type="text" onChange={(e) => state.genre = e.target.value} />
+                <input type="text" onChange={(e) => setFormState({
+                    ...formState,
+                    genre: e.target.value
+                })} />
             </div>
 
             <div className="field">
                 <label>Author:</label>
-                <select onChange={(e) => state.authorId = e.target.value}>
+                <select onChange={(e) => setFormState({
+                    ...formState,
+                    authorId: e.target.value
+                })} >
                     <option>Select author</option>
                     {authorField()}
                 </select>
