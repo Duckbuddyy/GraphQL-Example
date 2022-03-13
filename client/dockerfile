@@ -1,4 +1,4 @@
-FROM  node:17-alpine
+FROM  node:17
 WORKDIR /graphql-example/client
 COPY package.json .
 ARG SERVER_ENV
