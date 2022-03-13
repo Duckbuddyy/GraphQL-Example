@@ -1,10 +1,12 @@
 import React from 'react';
-import BookList from "./components/BookList";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
 } from "@apollo/client";
+
+import BookList from "./components/BookList";
+import AddBook from "./components/AddBook";
 
 const { GRAPHQL_URL } = require("./config");
 
@@ -19,6 +21,7 @@ function App() {
       <div id="main">
         <h1>My Reading List</h1>
         <BookList />
+        <AddBook />
       </div>
     </ApolloProvider>
   );
